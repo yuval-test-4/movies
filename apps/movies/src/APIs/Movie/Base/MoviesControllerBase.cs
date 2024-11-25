@@ -72,7 +72,6 @@ public abstract class MoviesControllerBase : ControllerBase
     /// Get one Movie
     /// </summary>
     [HttpGet("{Id}")]
-    [Authorize(Roles = "user")]
     public async Task<ActionResult<Movie>> Movie([FromRoute()] MovieWhereUniqueInput uniqueId)
     {
         try
@@ -215,5 +214,12 @@ public abstract class MoviesControllerBase : ControllerBase
         }
 
         return NoContent();
+    }
+
+    [HttpGet("{Id}/freeze-movie")]
+    [Authorize(Roles = "user")]
+    public async Task<string> FreezeMovie([FromBody()] string data)
+    {
+        return await _service.FreezeMovie(data);
     }
 }

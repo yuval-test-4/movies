@@ -316,4 +316,9 @@ public abstract class MoviesServiceBase : IMoviesService
         movie.Reviews = children;
         await _context.SaveChangesAsync();
     }
+
+    public async Task<string> FreezeMovie(string data)
+    {
+        throw new NotImplementedException();
+    }
 }
