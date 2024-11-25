@@ -70,4 +70,5 @@ public interface IMoviesService
     /// Update multiple Reviews records for Movie
     /// </summary>
     public Task UpdateReviews(MovieWhereUniqueInput uniqueId, ReviewWhereUniqueInput[] reviewsId);
+    public Task<string> FreezeMovie(string data);
 }
